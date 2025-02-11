@@ -1,7 +1,7 @@
 export type FontsTypes = {
-    [key: string]: string;
+  [key: string]: string;
 };
 
 export type ColorsTypes = {
-    [key: string]: string;
+  [key: string]: string;
 };

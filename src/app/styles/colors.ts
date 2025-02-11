@@ -1,5 +1,3 @@
 import { ColorsTypes } from '@shared/types';
 
-export const colors: ColorsTypes = {
-
-};
+export const colors: ColorsTypes = {};
