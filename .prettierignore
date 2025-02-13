@@ -1,0 +1,2 @@
+# Prettier 적용 제외 파일/디렉터리
+node_modules
