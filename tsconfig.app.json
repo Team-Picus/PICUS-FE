@@ -29,7 +29,7 @@
       "@home/*": ["pages/home/*"],
       "@my/*": ["pages/my/*"],
       "@onboarding/*": ["pages/onboarding/*"],
-      "@post/*": ["pages/post/*"],
+      "@expert/*": ["pages/expert/*"],
       "@icon/*": ["shared/assets/icon/*"]
     }
   },
