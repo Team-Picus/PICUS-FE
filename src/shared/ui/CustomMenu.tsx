@@ -92,14 +92,10 @@ const StyledMenu = styled((props: MenuProps) => (
 }));
 
 const MenuSection = styledComponent.div`
-  background: none;
-  border: none;
-  color: black;
   cursor: pointer;
-  padding: 5px;
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 5px;
 
   span {
     font-size: 24px;
