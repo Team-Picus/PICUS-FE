@@ -30,7 +30,8 @@
       "@my/*": ["pages/my/*"],
       "@onboarding/*": ["pages/onboarding/*"],
       "@expert/*": ["pages/expert/*"],
-      "@icon/*": ["shared/assets/icon/*"]
+      "@icon/*": ["shared/assets/icon/*"],
+      "@img/*": ["shared/assets/img/*"]
     }
   },
   "include": ["src"]

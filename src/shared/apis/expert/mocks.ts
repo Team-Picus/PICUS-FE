@@ -1,20 +1,134 @@
 import ImgExpertRecentPost1 from '@shared/assets/img/img-expert-recent-post.svg';
 import ImgExpertLogo from '@shared/assets/img/img-expert-logo.svg';
+import { Post } from '@shared/types';
 
 export const posts = [
   {
     image: ImgExpertRecentPost1,
+    title: '바람 속으로 흐르는 어쩌구저쩌구...',
+    logo: ImgExpertLogo,
+  },
+  {
+    image: ImgExpertRecentPost1,
+    title: '빛 속에서 마주한 우리의 꿈 배고프다...',
+    logo: ImgExpertLogo,
+  },
+  {
+    image: ImgExpertRecentPost1,
+    title: '기억의 물결은 우리의 가슴속에서 흐를까말까...',
+    logo: ImgExpertLogo,
+  },
+];
+
+export const expertPosts: Post[] = [
+  {
+    id: 1,
+    image: 'image1.jpg',
     title: '바람 속으로 흐르는...',
-    logo: ImgExpertLogo,
+    authorId: 'Capture',
+    price: 80000,
+    likes: 41,
+    liked: false, // 유저가 좋아요를 눌렀는지 여부
+    views: 85,
+    tags: ['여행', '자연', '힐링'], // 예시 태그
   },
   {
-    image: ImgExpertRecentPost1,
+    id: 2,
+    image: 'image2.jpg',
     title: '빛 속에서 마주한 우...',
-    logo: ImgExpertLogo,
+    authorId: 'Studio',
+    price: 75000,
+    likes: 62,
+    liked: true, // 유저가 좋아요를 눌렀는지 여부
+    views: 173,
+    tags: ['사진', '도시', '빛'],
   },
   {
-    image: ImgExpertRecentPost1,
+    id: 3,
+    image: 'image3.jpg',
     title: '기억의 물결...',
-    logo: ImgExpertLogo,
+    authorId: 'We_are_00',
+    price: 70000,
+    likes: 30,
+    liked: false, // 유저가 좋아요를 눌렀는지 여부
+    views: 100,
+    tags: ['추억', '감성'],
+  },
+  {
+    id: 4,
+    image: 'image3.jpg',
+    title: '기억의 물결...',
+    authorId: 'We_are_00',
+    price: 70000,
+    likes: 30,
+    liked: false, // 유저가 좋아요를 눌렀는지 여부
+    views: 100,
+    tags: ['추억', '감성'],
+  },
+  {
+    id: 5,
+    image: 'image3.jpg',
+    title: '기억의 물결...',
+    authorId: 'We_are_00',
+    price: 70000,
+    likes: 30,
+    liked: false, // 유저가 좋아요를 눌렀는지 여부
+    views: 100,
+    tags: ['추억', '감성'],
+  },
+  {
+    id: 6,
+    image: 'image3.jpg',
+    title: '기억의 물결...',
+    authorId: 'We_are_00',
+    price: 70000,
+    likes: 30,
+    liked: false, // 유저가 좋아요를 눌렀는지 여부
+    views: 100,
+    tags: ['추억', '감성'],
+  },
+  {
+    id: 7,
+    image: 'image3.jpg',
+    title: '기억의 물결...',
+    authorId: 'We_are_00',
+    price: 70000,
+    likes: 30,
+    liked: false, // 유저가 좋아요를 눌렀는지 여부
+    views: 100,
+    tags: ['추억', '감성'],
+  },
+  {
+    id: 8,
+    image: 'image3.jpg',
+    title: '기억의 물결...',
+    authorId: 'We_are_00',
+    price: 70000,
+    likes: 30,
+    liked: false, // 유저가 좋아요를 눌렀는지 여부
+    views: 100,
+    tags: ['추억', '감성'],
+  },
+  {
+    id: 9,
+    image: 'image3.jpg',
+    title: '기억의 물결...',
+    authorId: 'We_are_00',
+    price: 70000,
+    likes: 30,
+    liked: false, // 유저가 좋아요를 눌렀는지 여부
+    views: 100,
+    tags: ['추억', '감성'],
+  },
+  {
+    id: 10,
+    image: 'image3.jpg',
+    title: '기억의 물결...',
+    authorId: 'We_are_00',
+    price: 70000,
+    likes: 30,
+    liked: false, // 유저가 좋아요를 눌렀는지 여부
+    views: 100,
+    tags: ['추억', '감성'],
   },
 ];

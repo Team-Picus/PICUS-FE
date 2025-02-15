@@ -88,8 +88,7 @@ const Logo = styled.img`
 `;
 
 const ItemTitle = styled.h3`
-  font-size: 12px;
-  font-weight: bold;
+  font: ${({ theme }) => theme.fonts.caption_12px_medium};
   color: white;
   margin: 0;
   text-align: left;

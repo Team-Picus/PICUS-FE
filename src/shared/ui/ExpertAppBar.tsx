@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import Search from '@shared/assets/search.svg';
+import Search from '@icon/icon-search.svg';
 import CustomMenu from '@shared/ui/CustomMenu.tsx';
 
 type HeaderAction = {
@@ -46,7 +46,7 @@ const Wrapper = styled.header`
   align-items: center;
   padding: 0 20px;
   border-bottom: 1px solid #ddd;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 
   img {
     flex-shrink: 0;

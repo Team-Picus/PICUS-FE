@@ -1,16 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import RecentItem from './RecentItem'; // RecentItem 컴포넌트 불러오기
-import { posts } from '@shared/apis/expert/mocks.ts'; // mock 데이터 불러오기
+import RecentItem from './RecentItem';
+import { posts } from '@shared/apis/expert/mocks.ts';
 
-interface Post {
+interface RecentPost {
   image: string;
   title: string;
   logo: string;
 }
 
 const RecentPosts: React.FC = () => {
-  const [postsData, setPostsData] = useState<Post[]>([]);
+  const [postsData, setPostsData] = useState<RecentPost[]>([]);
 
   useEffect(() => {
     setPostsData(posts);
@@ -33,12 +33,12 @@ export default RecentPosts;
 const Wrapper = styled.div`
   padding: 16px 20px;
   width: 100%;
-  height: 246px;
+  height: 258px;
+  border-bottom: 12px solid #f5f6ff;
 `;
 
-const Title = styled.h2`
-  font-size: 18px;
-  font-weight: bold;
+const Title = styled.p`
+  font: ${({ theme }) => theme.fonts.headline_18px_semibold};
 `;
 
 const PostsContainer = styled.div`

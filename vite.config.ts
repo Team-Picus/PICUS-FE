@@ -31,6 +31,10 @@ export default defineConfig({
         replacement: path.resolve(__dirname, 'src/shared/assets/icon'),
       },
       {
+        find: '@img',
+        replacement: path.resolve(__dirname, 'src/shared/assets/img'),
+      },
+      {
         find: '@expert',
         replacement: path.resolve(__dirname, 'src/pages/expert'),
       },

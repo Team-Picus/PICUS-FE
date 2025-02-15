@@ -1,7 +1,7 @@
 import { styled } from '@mui/material/styles';
 import Menu, { MenuProps } from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
-import DropdownButton from '@shared/assets/dropdown.svg';
+import IconDropdown from '@icon/icon-dropdown.svg';
 import styledComponent from 'styled-components';
 import React, { useState } from 'react';
 
@@ -37,7 +37,7 @@ const CustomMenu: React.FC<DropdownMenuProps> = ({ dropdownItems, onItemClick })
       <MenuSection onClick={handleClick}>
         <span>{selectedItem}</span>
         <img
-          src={DropdownButton}
+          src={IconDropdown}
           style={{
             transform: rotate ? 'rotate(180deg)' : 'rotate(0deg)',
             transition: 'transform 0.2s ease',
@@ -85,6 +85,7 @@ const StyledMenu = styled((props: MenuProps) => (
   },
   '& .MuiMenuItem-root': {
     padding: theme.spacing(1, 2),
+    font: '16px Arial, Pretender',
     '&:hover': {
       backgroundColor: theme.palette.action.hover,
     },
@@ -96,9 +97,7 @@ const MenuSection = styledComponent.div`
   display: flex;
   align-items: center;
   gap: 5px;
-
   span {
-    font-size: 24px;
-    font-weight: bold;
+    font: ${({ theme }) => theme.fonts.headline_24px_semibold};
   }
 `;
