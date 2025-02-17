@@ -1,4 +1,6 @@
-import ImgExpertRecentPost1 from '@shared/assets/img/img-expert-recent-post.svg';
+import ImgExpertRecentPost1 from '@img/img-expert-post1.svg';
+import ImgExpertRecentPost2 from '@img/img-expert-post2.svg';
+import ImgExpertRecentPost3 from '@img/img-expert-post3.svg';
 import ImgExpertLogo from '@shared/assets/img/img-expert-logo.svg';
 import { Post } from '@shared/types';
 
@@ -9,12 +11,12 @@ export const posts = [
     logo: ImgExpertLogo,
   },
   {
-    image: ImgExpertRecentPost1,
+    image: ImgExpertRecentPost2,
     title: '빛 속에서 마주한 우리의 꿈 배고프다...',
     logo: ImgExpertLogo,
   },
   {
-    image: ImgExpertRecentPost1,
+    image: ImgExpertRecentPost3,
     title: '기억의 물결은 우리의 가슴속에서 흐를까말까...',
     logo: ImgExpertLogo,
   },
@@ -23,7 +25,7 @@ export const posts = [
 export const expertPosts: Post[] = [
   {
     id: 1,
-    image: 'image1.jpg',
+    image: ImgExpertRecentPost1,
     title: '바람 속으로 흐르는...',
     authorId: 'Capture',
     price: 80000,
@@ -34,7 +36,7 @@ export const expertPosts: Post[] = [
   },
   {
     id: 2,
-    image: 'image2.jpg',
+    image: ImgExpertRecentPost1,
     title: '빛 속에서 마주한 우...',
     authorId: 'Studio',
     price: 75000,
@@ -45,7 +47,7 @@ export const expertPosts: Post[] = [
   },
   {
     id: 3,
-    image: 'image3.jpg',
+    image: ImgExpertRecentPost1,
     title: '기억의 물결...',
     authorId: 'We_are_00',
     price: 70000,
@@ -56,7 +58,7 @@ export const expertPosts: Post[] = [
   },
   {
     id: 4,
-    image: 'image3.jpg',
+    image: ImgExpertRecentPost1,
     title: '기억의 물결...',
     authorId: 'We_are_00',
     price: 70000,
@@ -67,7 +69,7 @@ export const expertPosts: Post[] = [
   },
   {
     id: 5,
-    image: 'image3.jpg',
+    image: ImgExpertRecentPost1,
     title: '기억의 물결...',
     authorId: 'We_are_00',
     price: 70000,
@@ -78,7 +80,7 @@ export const expertPosts: Post[] = [
   },
   {
     id: 6,
-    image: 'image3.jpg',
+    image: ImgExpertRecentPost1,
     title: '기억의 물결...',
     authorId: 'We_are_00',
     price: 70000,
@@ -89,7 +91,7 @@ export const expertPosts: Post[] = [
   },
   {
     id: 7,
-    image: 'image3.jpg',
+    image: ImgExpertRecentPost1,
     title: '기억의 물결...',
     authorId: 'We_are_00',
     price: 70000,
@@ -100,7 +102,7 @@ export const expertPosts: Post[] = [
   },
   {
     id: 8,
-    image: 'image3.jpg',
+    image: ImgExpertRecentPost1,
     title: '기억의 물결...',
     authorId: 'We_are_00',
     price: 70000,
@@ -111,7 +113,7 @@ export const expertPosts: Post[] = [
   },
   {
     id: 9,
-    image: 'image3.jpg',
+    image: ImgExpertRecentPost1,
     title: '기억의 물결...',
     authorId: 'We_are_00',
     price: 70000,
@@ -122,7 +124,7 @@ export const expertPosts: Post[] = [
   },
   {
     id: 10,
-    image: 'image3.jpg',
+    image: ImgExpertRecentPost1,
     title: '기억의 물결...',
     authorId: 'We_are_00',
     price: 70000,

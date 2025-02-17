@@ -38,6 +38,7 @@ const Wrapper = styled.div`
 `;
 
 const Title = styled.p`
+  padding: 0 4px;
   font: ${({ theme }) => theme.fonts.headline_18px_semibold};
 `;
 
