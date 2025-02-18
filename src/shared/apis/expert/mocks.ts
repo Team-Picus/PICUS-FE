@@ -133,4 +133,37 @@ export const expertPosts: Post[] = [
     views: 100,
     tags: ['추억', '감성'],
   },
+  {
+    id: 10,
+    image: ImgExpertRecentPost1,
+    title: '기억의 물결...',
+    authorId: 'We_are_00',
+    price: 70000,
+    likes: 30,
+    liked: false, // 유저가 좋아요를 눌렀는지 여부
+    views: 100,
+    tags: ['추억', '감성'],
+  },
+  {
+    id: 10,
+    image: ImgExpertRecentPost1,
+    title: '기억의 물결...',
+    authorId: 'We_are_00',
+    price: 70000,
+    likes: 30,
+    liked: false, // 유저가 좋아요를 눌렀는지 여부
+    views: 100,
+    tags: ['추억', '감성'],
+  },
+  {
+    id: 10,
+    image: ImgExpertRecentPost1,
+    title: '기억의 물결...',
+    authorId: 'We_are_00',
+    price: 70000,
+    likes: 30,
+    liked: false, // 유저가 좋아요를 눌렀는지 여부
+    views: 100,
+    tags: ['추억', '감성'],
+  },
 ];

@@ -42,16 +42,8 @@ const Container = styled.div`
   align-items: center;
   justify-content: flex-start;
   width: 100%;
-  height: 100vh;
+  height: auto;
   padding: 16px 20px;
-  overflow: hidden;
-`;
-
-const StickyWrapper = styled.div`
-  position: sticky;
-  top: 0;
-  z-index: 10; /* 필터가 다른 콘텐츠 위로 오도록 */
-  width: 100%;
 `;
 
 const ScrollWrapper = styled.div`
@@ -59,7 +51,12 @@ const ScrollWrapper = styled.div`
   flex-direction: column;
   align-items: center;
   width: 100%;
-  max-height: calc(100vh - 160px); /* 100vh에서 상단 헤더와 필터 크기를 제외한 높이 */
-  overflow-y: auto;
   padding: 10px 0;
+`;
+
+const StickyWrapper = styled.div`
+  position: sticky;
+  top: 0;
+  width: 100%;
+  background-color: white;
 `;
