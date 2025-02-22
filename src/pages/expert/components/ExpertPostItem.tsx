@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { Post } from '@shared/types';
 import IconDot from '@icon/icon-dot.svg';
 import IconHeart from '@icon/icon-heart.svg';
+import FilterTag from '@shared/ui/FilterTag.tsx';
 
 interface ExpertPostItemProps {
   post: Post;
@@ -13,11 +14,9 @@ const ExpertPostItem: React.FC<ExpertPostItemProps> = ({ post }) => {
     <CardContainer>
       <ImageSection>
         <ItemImage src={post.image} alt={post.title} />
-        {/*<TagsContainer>*/}
-        {/*  {post.tags.map((tag, index) => (*/}
-        {/*    <Tag key={index}>{tag}</Tag>*/}
-        {/*  ))}*/}
-        {/*</TagsContainer>*/}
+        <TagsContainer>
+          <FilterTag isTodayAvailable={post.isTodayAvailable} />
+        </TagsContainer>
       </ImageSection>
       <FooterSection>
         <Name>{post.authorId}</Name>
@@ -28,7 +27,7 @@ const ExpertPostItem: React.FC<ExpertPostItemProps> = ({ post }) => {
             <img src={IconHeart} alt={'heart'} />
             {post.likes}
           </Like>
-          <img src={IconDot} alt={'dot'}></img>
+          <img src={IconDot} alt={'dot'} />
           <View>{post.views}명 보는 중</View>
         </LikeAndViewSection>
       </FooterSection>
@@ -50,11 +49,21 @@ const CardContainer = styled.div`
 const ImageSection = styled.div`
   width: 100%;
   height: 218px;
+  position: relative;
 `;
 
 const ItemImage = styled.img`
   width: 100%;
+  height: 100%;
   object-fit: cover;
+`;
+
+const TagsContainer = styled.div`
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  display: flex;
+  gap: 5px;
 `;
 
 const FooterSection = styled.div`
@@ -100,23 +109,3 @@ const View = styled.p`
   font: ${({ theme }) => theme.fonts.caption_10px_medium};
   color: #919191;
 `;
-
-// const TagsContainer = styled.div`
-//   display: flex;
-//   gap: 5px;
-//   margin-top: 10px;
-// `;
-//
-// const Tag = styled.span`
-//   background-color: #e0e0e0;
-//   padding: 3px 8px;
-//   border-radius: 12px;
-//   font-size: 10px;
-//   color: #555;
-//   cursor: pointer;
-//   transition: background-color 0.3s;
-//
-//   &:hover {
-//     background-color: #ccc;
-//   }
-// `;

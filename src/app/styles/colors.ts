@@ -9,6 +9,7 @@ export const colors: ColorsTypes = {
   background2: '#F5F6FF',
   sub1: '#FFDD88',
   sub2: '#FFFAEE',
+  sub2_type: '#605C51',
   white: '#FFFFFF',
   gray: '#929CB7',
 };

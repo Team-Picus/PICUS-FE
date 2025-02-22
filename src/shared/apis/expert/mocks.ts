@@ -32,7 +32,8 @@ export const expertPosts: Post[] = [
     likes: 41,
     liked: false, // 유저가 좋아요를 눌렀는지 여부
     views: 85,
-    tags: ['여행', '자연', '힐링'], // 예시 태그
+    tags: ['당일가능', '성남시'], // 지역 및 당일가능
+    isTodayAvailable: true, // 당일가능
   },
   {
     id: 2,
@@ -43,7 +44,8 @@ export const expertPosts: Post[] = [
     likes: 62,
     liked: true, // 유저가 좋아요를 눌렀는지 여부
     views: 173,
-    tags: ['사진', '도시', '빛'],
+    tags: ['당일가능', '서울시'], // 지역 및 당일가능
+    isTodayAvailable: false, // 당일가능
   },
   {
     id: 3,
@@ -54,7 +56,8 @@ export const expertPosts: Post[] = [
     likes: 30,
     liked: false, // 유저가 좋아요를 눌렀는지 여부
     views: 100,
-    tags: ['추억', '감성'],
+    tags: ['당일가능', '서울시'], // 지역 및 당일가능
+    isTodayAvailable: false, // 당일가능
   },
   {
     id: 4,
@@ -65,7 +68,8 @@ export const expertPosts: Post[] = [
     likes: 30,
     liked: false, // 유저가 좋아요를 눌렀는지 여부
     views: 100,
-    tags: ['추억', '감성'],
+    tags: ['당일가능', '서울시'], // 지역 및 당일가능
+    isTodayAvailable: true, // 당일가능
   },
   {
     id: 5,
@@ -76,7 +80,8 @@ export const expertPosts: Post[] = [
     likes: 30,
     liked: false, // 유저가 좋아요를 눌렀는지 여부
     views: 100,
-    tags: ['추억', '감성'],
+    tags: ['당일가능', '서울시'], // 지역 및 당일가능
+    isTodayAvailable: true, // 당일가능
   },
   {
     id: 6,
@@ -87,7 +92,8 @@ export const expertPosts: Post[] = [
     likes: 30,
     liked: false, // 유저가 좋아요를 눌렀는지 여부
     views: 100,
-    tags: ['추억', '감성'],
+    tags: ['당일가능', '서울시'], // 지역 및 당일가능
+    isTodayAvailable: true, // 당일가능
   },
   {
     id: 7,
@@ -98,7 +104,8 @@ export const expertPosts: Post[] = [
     likes: 30,
     liked: false, // 유저가 좋아요를 눌렀는지 여부
     views: 100,
-    tags: ['추억', '감성'],
+    tags: ['당일가능', '서울시'], // 지역 및 당일가능
+    isTodayAvailable: true, // 당일가능
   },
   {
     id: 8,
@@ -109,7 +116,8 @@ export const expertPosts: Post[] = [
     likes: 30,
     liked: false, // 유저가 좋아요를 눌렀는지 여부
     views: 100,
-    tags: ['추억', '감성'],
+    tags: ['당일가능', '서울시'], // 지역 및 당일가능
+    isTodayAvailable: true, // 당일가능
   },
   {
     id: 9,
@@ -120,7 +128,8 @@ export const expertPosts: Post[] = [
     likes: 30,
     liked: false, // 유저가 좋아요를 눌렀는지 여부
     views: 100,
-    tags: ['추억', '감성'],
+    tags: ['당일가능', '서울시'], // 지역 및 당일가능
+    isTodayAvailable: true, // 당일가능
   },
   {
     id: 10,
@@ -131,10 +140,11 @@ export const expertPosts: Post[] = [
     likes: 30,
     liked: false, // 유저가 좋아요를 눌렀는지 여부
     views: 100,
-    tags: ['추억', '감성'],
+    tags: ['당일가능', '서울시'], // 지역 및 당일가능
+    isTodayAvailable: true, // 당일가능
   },
   {
-    id: 10,
+    id: 11,
     image: ImgExpertRecentPost1,
     title: '기억의 물결...',
     authorId: 'We_are_00',
@@ -142,10 +152,11 @@ export const expertPosts: Post[] = [
     likes: 30,
     liked: false, // 유저가 좋아요를 눌렀는지 여부
     views: 100,
-    tags: ['추억', '감성'],
+    tags: ['당일가능', '서울시'], // 지역 및 당일가능
+    isTodayAvailable: true, // 당일가능
   },
   {
-    id: 10,
+    id: 12,
     image: ImgExpertRecentPost1,
     title: '기억의 물결...',
     authorId: 'We_are_00',
@@ -153,10 +164,11 @@ export const expertPosts: Post[] = [
     likes: 30,
     liked: false, // 유저가 좋아요를 눌렀는지 여부
     views: 100,
-    tags: ['추억', '감성'],
+    tags: ['당일가능', '서울시'], // 지역 및 당일가능
+    isTodayAvailable: true, // 당일가능
   },
   {
-    id: 10,
+    id: 13,
     image: ImgExpertRecentPost1,
     title: '기억의 물결...',
     authorId: 'We_are_00',
@@ -164,6 +176,7 @@ export const expertPosts: Post[] = [
     likes: 30,
     liked: false, // 유저가 좋아요를 눌렀는지 여부
     views: 100,
-    tags: ['추억', '감성'],
+    tags: ['당일가능', '서울시'], // 지역 및 당일가능
+    isTodayAvailable: true, // 당일가능
   },
 ];

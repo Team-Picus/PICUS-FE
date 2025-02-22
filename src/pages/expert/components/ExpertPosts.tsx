@@ -59,4 +59,5 @@ const StickyWrapper = styled.div`
   top: 0;
   width: 100%;
   background-color: white;
+  z-index: 10;
 `;
