@@ -23,8 +23,9 @@ const ExpertPosts: React.FC = () => {
       <PostHeader totalPosts={3451} />
       <StickyWrapper>
         <FilterTags
-          categories={['당일가능', '지역', '테마', '바보', '멍청이', '멋쟁이']}
+          categories={['당일가능', '가격', '지역', '테마']}
           onChange={setFilters}
+          posts={posts}
         />
       </StickyWrapper>
       <ScrollWrapper>
@@ -43,7 +44,7 @@ const Container = styled.div`
   justify-content: flex-start;
   width: 100%;
   height: auto;
-  padding: 16px 20px;
+  padding: 16px 16px;
 `;
 
 const ScrollWrapper = styled.div`
@@ -51,7 +52,6 @@ const ScrollWrapper = styled.div`
   flex-direction: column;
   align-items: center;
   width: 100%;
-  padding: 10px 0;
 `;
 
 const StickyWrapper = styled.div`

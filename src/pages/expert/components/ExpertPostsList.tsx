@@ -24,6 +24,9 @@ const Container = styled.div`
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  height: auto;
   flex-wrap: wrap;
+
+  & > * {
+    flex: 0 0 calc(50% - 5px);
+  }
 `;
