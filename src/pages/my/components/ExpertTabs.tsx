@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { useHandleTab } from '@my/feature/useHandleTab.ts';
 import ExpertPostBox from '@my/components/post/ExpertPostBox.tsx';
+import ExpertReviewBox from '@my/components/review/ExpertReviewBox.tsx';
 
 const ExpertTabs = () => {
   const { activeTab, handleTab, tabRefs, indicatorStyle } = useHandleTab();
@@ -25,7 +26,7 @@ const ExpertTabs = () => {
       />
       <TabBox>
         {activeTab === 1 && <ExpertPostBox />}
-        {activeTab === 2 && <div>후기</div>}
+        {activeTab === 2 && <ExpertReviewBox />}
         {activeTab === 3 && <div>정보</div>}
       </TabBox>
     </TabContainer>
