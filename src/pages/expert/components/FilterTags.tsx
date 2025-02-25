@@ -105,38 +105,10 @@ const Slash = styled.div`
 `;
 
 const FilterIcon = styled.div`
-  padding: 0 10px;
+  padding: 0 20px;
   cursor: pointer;
   img {
     width: 100%;
   }
 `;
 
-// // 모달 스타일
-// const Modal = styled.div`
-//   position: fixed;
-//   top: 0;
-//   left: 0;
-//   right: 0;
-//   bottom: 0;
-//   background-color: rgba(0, 0, 0, 0.5);
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
-//   color: white;
-//   padding: 20px;
-//   z-index: 100;
-//
-//   button {
-//     margin-top: 20px;
-//     background-color: #ff6347;
-//     color: white;
-//     border: none;
-//     padding: 10px;
-//     cursor: pointer;
-//
-//     &:hover {
-//       background-color: #ff4500;
-//     }
-//   }
-// `;
