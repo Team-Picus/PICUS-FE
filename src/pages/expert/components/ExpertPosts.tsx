@@ -44,7 +44,7 @@ const Container = styled.div`
   justify-content: flex-start;
   width: 100%;
   height: auto;
-  padding: 16px 16px;
+  padding: 16px 0;
 `;
 
 const ScrollWrapper = styled.div`

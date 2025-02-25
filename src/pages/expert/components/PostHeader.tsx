@@ -29,7 +29,7 @@ const Container = styled.div`
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  padding: 5px 4px;
+  padding: 5px 20px;
 `;
 
 const TitleSection = styled.div`

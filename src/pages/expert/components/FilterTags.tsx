@@ -38,7 +38,11 @@ const FilterTags: React.FC<FilterTagsProps> = ({ onChange, categories, posts }) 
           <img src={IconSlash} alt={IconSlash} />
         </Slash>
         {filteredCategories.map((category, index) => (
-          <Tag key={index} $active={activeTag === category} onClick={() => handleTagClick(category)}>
+          <Tag
+            key={index}
+            $active={activeTag === category}
+            onClick={() => handleTagClick(category)}
+          >
             {category}
             <img src={IconDown} alt={IconDown} />
           </Tag>
@@ -47,15 +51,6 @@ const FilterTags: React.FC<FilterTagsProps> = ({ onChange, categories, posts }) 
       <FilterIcon>
         <img src={IconFilter} alt={IconFilter} />
       </FilterIcon>
-
-      {/*/!* 필터 모달 *!/*/}
-      {/*{showModal && (*/}
-      {/*  <Modal>*/}
-      {/*    <h3>필터를 선택하세요</h3>*/}
-      {/*    /!* 모달에 필터 내용 추가 *!/*/}
-      {/*    <button onClick={() => setShowModal(false)}>닫기</button>*/}
-      {/*  </Modal>*/}
-      {/*)}*/}
     </Container>
   );
 };
@@ -71,6 +66,7 @@ const Container = styled.div`
 `;
 
 const ScrollableTags = styled.div`
+  padding: 0 16px;
   display: flex;
   flex-direction: row;
   align-items: center;
