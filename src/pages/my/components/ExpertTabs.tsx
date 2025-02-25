@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { useHandleTab } from '@my/feature/useHandleTab.ts';
+import ExpertPostBox from '@my/components/post/ExpertPostBox.tsx';
 
 const ExpertTabs = () => {
   const { activeTab, handleTab, tabRefs, indicatorStyle } = useHandleTab();
@@ -22,13 +23,19 @@ const ExpertTabs = () => {
           left: indicatorStyle.left,
         }}
       />
+      <TabBox>
+        {activeTab === 1 && <ExpertPostBox />}
+        {activeTab === 2 && <div>후기</div>}
+        {activeTab === 3 && <div>정보</div>}
+      </TabBox>
     </TabContainer>
-  )
-}
+  );
+};
 
 export default ExpertTabs;
 
 const TabContainer = styled.div`
+  position: sticky;
   display: flex;
   flex-direction: column;
 `;
@@ -58,4 +65,9 @@ const TabIndicator = styled.div`
   transition:
     left 0.3s ease,
     width 0.3s ease;
+`;
+
+const TabBox = styled.div`
+  display: flex;
+  overflow-y: scroll;
 `;
