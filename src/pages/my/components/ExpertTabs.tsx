@@ -28,7 +28,7 @@ const ExpertTabs = () => {
       <TabBox>
         {activeTab === 1 && <ExpertPostBox />}
         {activeTab === 2 && <ExpertReviewBox />}
-        {activeTab === 3 && <ExpertInfo/>}
+        {activeTab === 3 && <ExpertInfo />}
       </TabBox>
     </TabContainer>
   );

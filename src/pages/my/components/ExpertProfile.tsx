@@ -2,8 +2,19 @@ import ImgMyProfile from '@img/img-my-profile.png';
 import IconMyHeart from '@icon/icon-my-heart.svg';
 import ImgMyExample from '@img/img-my-example.png';
 import styled from 'styled-components';
+import { MemberRole, useMemberRoleStore } from '@shared/store/useMemberRoleStore.ts';
+import { useState } from 'react';
 
 const ExpertProfile = () => {
+  const { memberRole } = useMemberRoleStore();
+  const [isLiked, setIsLiked] = useState(false);
+
+  const chat = () => {};
+  const editProfile = () => {};
+  const handleLike = () => {
+    setIsLiked(!isLiked);
+  };
+
   return (
     <ProfileInner>
       {/*프로필, 닉네임, 좋아요*/}
@@ -13,7 +24,7 @@ const ExpertProfile = () => {
           <ProfileName>usee_pic</ProfileName>
           <ProfileJob>스냅작가</ProfileJob>
         </InfoBox>
-        <HeartBox>
+        <HeartBox onClick={() => (MemberRole.NORMAL ? handleLike() : undefined)}>
           <img src={IconMyHeart} alt="" />
           <p>351</p>
         </HeartBox>
@@ -41,7 +52,9 @@ const ExpertProfile = () => {
         <TextMedium>@usee_pic_</TextMedium>
       </IntroSection>
       {/*버튼*/}
-      <Button>프로필 편집</Button>
+      <Button onClick={() => (MemberRole.EXPERT ? editProfile() : chat())}>
+        {memberRole === MemberRole.EXPERT ? '프로필 편집' : '1: 채팅'}
+      </Button>
     </ProfileInner>
   );
 };
