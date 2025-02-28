@@ -4,8 +4,11 @@ import TodayAvailable from '@my/components/post/list/TodayAvailable.tsx';
 import ExpertPostBanner from '@my/components/post/banner/ExpertPostBanner.tsx';
 import Category from '@my/components/post/list/Category.tsx';
 import ExpertPost from '@my/components/post/list/ExpertPost.tsx';
+import { MemberRole, useMemberRoleStore } from "@shared/store/useMemberRoleStore.ts";
+import PostFilter from "@my/components/post/PostFilter.tsx";
 
 const ExpertPostBox = () => {
+  const { memberRole } = useMemberRoleStore();
   return (
     <ExpertPostBoxContainer>
       <ExpertPostBanner />
@@ -13,7 +16,7 @@ const ExpertPostBox = () => {
       <PostSection>
         <PostTopSection>
           <PostTitle>게시물<span>14</span></PostTitle>
-          <TodayAvailable />
+          {memberRole === MemberRole.EXPERT ? <TodayAvailable /> : <PostFilter />}
         </PostTopSection>
         <FilterSection>
           {categories.map((category, index) => (
