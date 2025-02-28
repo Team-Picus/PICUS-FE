@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { useHandleTab } from '@my/feature/useHandleTab.ts';
 import ExpertPostBox from '@my/components/post/ExpertPostBox.tsx';
 import ExpertReviewBox from '@my/components/review/ExpertReviewBox.tsx';
-import ExpertInfo from "@my/components/info/ExpertInfo.tsx";
+import ExpertInfo from '@my/components/info/ExpertInfo.tsx';
 
 const ExpertTabs = () => {
   const { activeTab, handleTab, tabRefs, indicatorStyle } = useHandleTab();
@@ -28,7 +28,7 @@ const ExpertTabs = () => {
       <TabBox>
         {activeTab === 1 && <ExpertPostBox />}
         {activeTab === 2 && <ExpertReviewBox />}
-        {activeTab === 3 && <ExpertInfo/>}
+        {activeTab === 3 && <ExpertInfo />}
       </TabBox>
     </TabContainer>
   );

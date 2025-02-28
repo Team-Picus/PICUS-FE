@@ -1,9 +1,14 @@
 import ImgMyProfile from '@img/img-my-profile.png';
-import IconMyHeart from '@icon/icon-my-heart.svg';
 import ImgMyExample from '@img/img-my-example.png';
 import styled from 'styled-components';
+import { MemberRole, useMemberRoleStore } from '@shared/store/useMemberRoleStore.ts';
+import Like from '@my/components/profile/Like.tsx';
 
 const ExpertProfile = () => {
+  const { memberRole } = useMemberRoleStore();
+  const chat = () => {};
+  const editProfile = () => {};
+
   return (
     <ProfileInner>
       {/*프로필, 닉네임, 좋아요*/}
@@ -13,10 +18,7 @@ const ExpertProfile = () => {
           <ProfileName>usee_pic</ProfileName>
           <ProfileJob>스냅작가</ProfileJob>
         </InfoBox>
-        <HeartBox>
-          <img src={IconMyHeart} alt="" />
-          <p>351</p>
-        </HeartBox>
+        <Like memberRole={memberRole} />
       </InfoSection>
       {/*평점, 활동, 마지막 활동*/}
       <LabelSection>
@@ -41,7 +43,9 @@ const ExpertProfile = () => {
         <TextMedium>@usee_pic_</TextMedium>
       </IntroSection>
       {/*버튼*/}
-      <Button>프로필 편집</Button>
+      <Button onClick={() => (MemberRole.EXPERT ? editProfile() : chat())}>
+        {memberRole === MemberRole.EXPERT ? '프로필 편집' : '1: 채팅'}
+      </Button>
     </ProfileInner>
   );
 };
@@ -87,21 +91,6 @@ const ProfileName = styled.p`
 const ProfileJob = styled.p`
   font: ${({ theme }) => theme.fonts.body_14px_medium};
   color: ${({ theme }) => theme.colors.gray4};
-`;
-
-const HeartBox = styled.div`
-  margin-left: auto;
-  display: flex;
-  align-items: center;
-  gap: 4px;
-  padding: 10px 12px;
-  border-radius: 4px;
-  border: 1px solid rgba(255, 255, 255, 0.15);
-
-  p {
-    font: ${({ theme }) => theme.fonts.body_14px_medium};
-    color: ${({ theme }) => theme.colors.gray3};
-  }
 `;
 
 const Button = styled.div`
