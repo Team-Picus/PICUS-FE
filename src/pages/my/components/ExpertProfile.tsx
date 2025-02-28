@@ -1,5 +1,6 @@
 import ImgMyProfile from '@img/img-my-profile.png';
 import IconMyHeart from '@icon/icon-my-heart.svg';
+import IconMyHeartFill from '@icon/icon-my-heart-fill.svg';
 import ImgMyExample from '@img/img-my-example.png';
 import styled from 'styled-components';
 import { MemberRole, useMemberRoleStore } from '@shared/store/useMemberRoleStore.ts';
@@ -25,7 +26,7 @@ const ExpertProfile = () => {
           <ProfileJob>스냅작가</ProfileJob>
         </InfoBox>
         <HeartBox onClick={() => (MemberRole.NORMAL ? handleLike() : undefined)}>
-          <img src={IconMyHeart} alt="" />
+          <img src={isLiked ? IconMyHeartFill : IconMyHeart} alt="" />
           <p>351</p>
         </HeartBox>
       </InfoSection>
