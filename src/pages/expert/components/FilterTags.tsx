@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import IconToday from '@icon/icon-expert-today.svg';
+import IconToday from '@icon/icon-today.svg';
+import IconTodayClick from '@icon/icon-today-click.svg';
 import IconSlash from '@icon/icon-expert-slash.svg';
 import IconFilter from '@icon/icon-filter.svg';
 import IconDown from '@icon/icon-down.svg';
 import { Post } from '@shared/types';
+import FilterModal from '@expert/components/modal/FilterModal.tsx';
+import { useControlModal } from '@expert/features/hooks/useControlModals.ts';
 
 interface FilterTagsProps {
   onChange: (filters: { category: string[] }) => void;
@@ -14,15 +17,27 @@ interface FilterTagsProps {
 
 const FilterTags: React.FC<FilterTagsProps> = ({ onChange, categories, posts }) => {
   const [activeTag, setActiveTag] = useState<string | null>(null);
+  const [activeCategory, setActiveCategory] = useState<string | null>(null);
+  const { modalState, openModal, closeModal } = useControlModal();
 
   const handleTagClick = (category: string) => {
     setActiveTag(category);
+    setActiveCategory(category);
+
     if (category === '당일가능') {
       const filteredPosts = posts.filter((post) => post.isTodayAvailable);
       onChange({ category: filteredPosts.map((post) => post.title) });
     } else {
-      // setShowModal(true); 나중에 모달 추가히면 넣을 로직
+      if (!modalState) {
+        openModal();
+      }
     }
+  };
+
+  const handleModalClose = () => {
+    setActiveCategory(null); // 모달을 닫을 때 activeCategory를 null로 리셋
+    setActiveTag(null); // 모달을 닫을 때 activeTag를 null로 리셋
+    closeModal();
   };
 
   const filteredCategories = categories.filter((category) => category !== '당일가능');
@@ -31,7 +46,7 @@ const FilterTags: React.FC<FilterTagsProps> = ({ onChange, categories, posts }) 
     <Container>
       <ScrollableTags>
         <Tag $active={activeTag === '당일가능'} onClick={() => handleTagClick('당일가능')}>
-          <img src={IconToday} alt={IconToday} />
+          <img src={activeTag === '당일가능' ? IconTodayClick : IconToday} alt={IconToday} />
           {'당일가능'}
         </Tag>
         <Slash>
@@ -48,9 +63,14 @@ const FilterTags: React.FC<FilterTagsProps> = ({ onChange, categories, posts }) 
           </Tag>
         ))}
       </ScrollableTags>
-      <FilterIcon>
+      <FilterIcon onClick={openModal}>
         <img src={IconFilter} alt={IconFilter} />
       </FilterIcon>
+      <FilterModal
+        isVisible={modalState}
+        onClose={handleModalClose}
+        activeCategory={activeCategory}
+      />
     </Container>
   );
 };
@@ -111,4 +131,3 @@ const FilterIcon = styled.div`
     width: 100%;
   }
 `;
-
