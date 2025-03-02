@@ -21,7 +21,7 @@ const ModalTabs: React.FC<ModalTabsProps> = ({ activeCategory }) => {
     } else if (activeCategory === '테마') {
       handleTab(3);
     }
-  }, [activeCategory, handleTab]);
+  }, [activeCategory]);
 
   return (
     <TabContainer>

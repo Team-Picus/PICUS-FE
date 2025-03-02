@@ -17,25 +17,20 @@ interface FilterTagsProps {
 
 const FilterTags: React.FC<FilterTagsProps> = ({ onChange, categories, posts }) => {
   const [activeTag, setActiveTag] = useState<string | null>(null);
-  const [activeCategory, setActiveCategory] = useState<string | null>(null);
   const { modalState, openModal, closeModal } = useControlModal();
 
   const handleTagClick = (category: string) => {
     setActiveTag(category);
-    setActiveCategory(category);
 
     if (category === '당일가능') {
       const filteredPosts = posts.filter((post) => post.isTodayAvailable);
       onChange({ category: filteredPosts.map((post) => post.title) });
     } else {
-      if (!modalState) {
-        openModal();
-      }
+      openModal();
     }
   };
 
   const handleModalClose = () => {
-    setActiveCategory(null); // 모달을 닫을 때 activeCategory를 null로 리셋
     setActiveTag(null); // 모달을 닫을 때 activeTag를 null로 리셋
     closeModal();
   };
@@ -46,11 +41,11 @@ const FilterTags: React.FC<FilterTagsProps> = ({ onChange, categories, posts }) 
     <Container>
       <ScrollableTags>
         <Tag $active={activeTag === '당일가능'} onClick={() => handleTagClick('당일가능')}>
-          <img src={activeTag === '당일가능' ? IconTodayClick : IconToday} alt={IconToday} />
+          <img src={activeTag === '당일가능' ? IconTodayClick : IconToday} alt="Today" />
           {'당일가능'}
         </Tag>
         <Slash>
-          <img src={IconSlash} alt={IconSlash} />
+          <img src={IconSlash} alt="Slash" />
         </Slash>
         {filteredCategories.map((category, index) => (
           <Tag
@@ -59,18 +54,14 @@ const FilterTags: React.FC<FilterTagsProps> = ({ onChange, categories, posts }) 
             onClick={() => handleTagClick(category)}
           >
             {category}
-            <img src={IconDown} alt={IconDown} />
+            <img src={IconDown} alt="Down" />
           </Tag>
         ))}
       </ScrollableTags>
       <FilterIcon onClick={openModal}>
-        <img src={IconFilter} alt={IconFilter} />
+        <img src={IconFilter} alt="Filter" />
       </FilterIcon>
-      <FilterModal
-        isVisible={modalState}
-        onClose={handleModalClose}
-        activeCategory={activeCategory}
-      />
+      <FilterModal isVisible={modalState} onClose={handleModalClose} activeCategory={activeTag} />
     </Container>
   );
 };
@@ -94,7 +85,6 @@ const ScrollableTags = styled.div`
   overflow-x: auto;
   gap: 6px;
 
-  /* 왼쪽 경계 흐림 */
   mask-image: linear-gradient(to left, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 2%);
   -webkit-mask-image: linear-gradient(to left, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 2%);
 `;
