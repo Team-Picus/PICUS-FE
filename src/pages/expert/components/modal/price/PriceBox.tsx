@@ -91,7 +91,7 @@ const RadioSection = styled.div`
   align-items: center;
   width: 100%;
   flex-wrap: wrap;
-  padding: 25px 0 0 0;
+  margin: 25px 0 0 0;
   gap: 10px;
 
   & > * {

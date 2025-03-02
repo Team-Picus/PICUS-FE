@@ -20,6 +20,7 @@ export const PriceRadioButton: React.FC<PriceRadioButtonProps> = ({ id, label, o
 const RadioWrapper = styled.div`
   display: flex;
   align-items: center;
+  gap: 8px;
 `;
 
 const RadioInput = styled.input`
