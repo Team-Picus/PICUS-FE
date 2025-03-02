@@ -2,6 +2,7 @@ import { createBrowserRouter } from 'react-router';
 import { RootLayout } from '@app/layout';
 import { HomePage } from '@pages/home';
 import { ExpertMainPage } from '@pages/expert/ui/ExpertMainPage.tsx';
+import { ExpertDetailPage } from "@pages/my";
 
 export const router = createBrowserRouter([
   {
@@ -23,5 +24,15 @@ export const router = createBrowserRouter([
         element: <ExpertMainPage />,
       },
     ],
-  }
+  },
+  {
+    path: '/my',
+    element: <RootLayout />,
+    children: [
+      {
+        index: true,
+        element: <ExpertDetailPage />,
+      },
+    ],
+  },
 ]);

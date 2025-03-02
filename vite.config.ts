@@ -38,6 +38,10 @@ export default defineConfig({
         find: '@expert',
         replacement: path.resolve(__dirname, 'src/pages/expert'),
       },
+      {
+        find: '@my',
+        replacement: path.resolve(__dirname, 'src/pages/my'),
+      },
     ],
   },
 });
