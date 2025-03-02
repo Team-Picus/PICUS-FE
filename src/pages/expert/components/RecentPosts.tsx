@@ -17,37 +17,38 @@ const RecentPosts: React.FC = () => {
   }, []);
 
   return (
-    <Wrapper>
+    <Container>
       <Title>최근 관심 게시물</Title>
-      <PostsContainer>
+      <PostsSection>
         {postsData.map((post, index) => (
           <RecentItem key={index} image={post.image} title={post.title} logo={post.logo} />
         ))}
-      </PostsContainer>
-    </Wrapper>
+      </PostsSection>
+    </Container>
   );
 };
 
 export default RecentPosts;
 
-const Wrapper = styled.div`
-  padding: 16px 20px;
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 16px 0;
   width: 100%;
-  height: 258px;
   border-bottom: 12px solid #f5f6ff;
 `;
 
 const Title = styled.p`
-  padding: 0 4px;
+  padding: 0 20px;
   font: ${({ theme }) => theme.fonts.headline_18px_semibold};
 `;
 
-const PostsContainer = styled.div`
+const PostsSection = styled.div`
+  padding: 0 20px;
+  margin-top: 16px;
   display: flex;
   width: 100%;
-  height: 237px;
-  align-items: flex-start;
   overflow-x: scroll;
-  gap: 20px;
-  margin-top: 12px;
+  gap: 10px;
 `;

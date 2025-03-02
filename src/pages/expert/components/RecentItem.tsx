@@ -9,8 +9,8 @@ interface RecentItemProps {
 
 const RecentItem: React.FC<RecentItemProps> = ({ image, title, logo }) => {
   return (
-    <ItemCard>
-      <ItemImageWrapper>
+    <Container>
+      <ImageSection>
         <ItemImage src={image} alt={title} />
         <Overlay>
           <InfoSection>
@@ -18,39 +18,25 @@ const RecentItem: React.FC<RecentItemProps> = ({ image, title, logo }) => {
             <ItemTitle>{title}</ItemTitle>
           </InfoSection>
         </Overlay>
-      </ItemImageWrapper>
-    </ItemCard>
+      </ImageSection>
+    </Container>
   );
 };
 
 export default RecentItem;
 
-const ItemCard = styled.div`
-  flex-shrink: 0;
-  width: 137px;
-  height: 170px;
-  background-color: white;
-  border-radius: 4px;
-  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+const Container = styled.div`
+  width: 100%;
   cursor: pointer;
-  overflow: hidden;
-  transition: transform 0.3s;
-
-  &:hover {
-    transform: translateY(-10px);
-  }
 `;
 
-const ItemImageWrapper = styled.div`
+const ImageSection = styled.div`
   position: relative;
-  width: 100%;
-  height: 170px;
   overflow: hidden;
+  border-radius: 4px;
 `;
 
 const ItemImage = styled.img`
-  width: 100%;
-  height: 100%;
   object-fit: cover;
 `;
 
@@ -82,8 +68,6 @@ const InfoSection = styled.div`
 `;
 
 const Logo = styled.img`
-  width: 16px;
-  height: 16px;
   object-fit: contain;
 `;
 

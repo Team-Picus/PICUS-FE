@@ -11,7 +11,7 @@ interface ExpertPostItemProps {
 
 const ExpertPostItem: React.FC<ExpertPostItemProps> = ({ post }) => {
   return (
-    <CardContainer>
+    <Container>
       <ImageSection>
         <ItemImage src={post.image} alt={post.title} />
         <TagsContainer>
@@ -31,30 +31,28 @@ const ExpertPostItem: React.FC<ExpertPostItemProps> = ({ post }) => {
           <View>{post.views}명 보는 중</View>
         </LikeAndViewSection>
       </FooterSection>
-    </CardContainer>
+    </Container>
   );
 };
 
 export default ExpertPostItem;
 
-const CardContainer = styled.div`
+const Container = styled.div`
   flex-shrink: 0;
-  width: 174px;
-  height: 306px;
   background-color: white;
   border-radius: 6px;
   cursor: pointer;
+  padding: 10px 0;
+  width: 100%;
 `;
 
 const ImageSection = styled.div`
   width: 100%;
-  height: 218px;
   position: relative;
 `;
 
 const ItemImage = styled.img`
   width: 100%;
-  height: 100%;
   object-fit: cover;
 `;
 
@@ -71,6 +69,7 @@ const FooterSection = styled.div`
   justify-content: center;
   align-items: flex-start;
   flex-direction: column;
+  padding: 5px 0;
   width: 100%;
 `;
 

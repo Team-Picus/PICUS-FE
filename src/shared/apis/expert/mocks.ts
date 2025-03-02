@@ -20,6 +20,16 @@ export const posts = [
     title: '기억의 물결은 우리의 가슴속에서 흐를까말까...',
     logo: ImgExpertLogo,
   },
+  {
+    image: ImgExpertRecentPost3,
+    title: '기억의 물결은 우리의 가슴속에서 흐를까말까...',
+    logo: ImgExpertLogo,
+  },
+  {
+    image: ImgExpertRecentPost3,
+    title: '기억의 물결은 우리의 가슴속에서 흐를까말까...',
+    logo: ImgExpertLogo,
+  },
 ];
 
 export const expertPosts: Post[] = [

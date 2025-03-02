@@ -26,14 +26,9 @@ const TagContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 2px 10px;
+  padding: 2px 6px;
   font: ${({ theme }) => theme.fonts.caption_10px_medium};
   background-color: ${({ theme }) => theme.colors.tag3};
   color: ${({ theme }) => theme.colors.main1};
   border-radius: 2px;
-  transition: transform 0.3s;
-
-  &:hover {
-    transform: translateY(-10px);
-  }
 `;

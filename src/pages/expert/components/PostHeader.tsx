@@ -15,7 +15,7 @@ const PostHeader: React.FC<PostHeaderProps> = ({ totalPosts }) => {
       </TitleSection>
       <FilterMenu>
         <p>최근 활동 순 </p>
-        <img src={IconDropdown}></img>
+        <img src={IconDropdown} alt={IconDropdown}></img>
       </FilterMenu>
     </Container>
   );
@@ -27,10 +27,9 @@ const Container = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   width: 100%;
-  height: 38px;
-  padding: 0 4px;
+  padding: 5px 20px;
 `;
 
 const TitleSection = styled.div`
@@ -54,7 +53,6 @@ const FilterMenu = styled.div`
   flex-direction: row;
   align-items: center;
   gap: 5px;
-  margin-left: auto;
   cursor: pointer;
   p {
     font: ${({ theme }) => theme.fonts.body_14px_medium};
