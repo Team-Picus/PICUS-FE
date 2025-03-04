@@ -14,8 +14,10 @@ const PostFilter = () => {
       </PostFilterInner>
       {isOn && (
         <FilterItemsContainer>
-          {filterItems.map((item, index) => (
-            <p key={index} onClick={() => changeFilter(index)}>{item}</p>
+          {filterItems.map((item, index, array) => (
+            <p key={index} onClick={() => changeFilter(array[index])}>
+              {item}
+            </p>
           ))}
         </FilterItemsContainer>
       )}
