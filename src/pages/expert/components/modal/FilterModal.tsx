@@ -67,7 +67,6 @@ const customModalStyles: ReactModal.Styles = {
     boxShadow: '2px 2px 2px rgba(0, 0, 0, 0.25)',
     backgroundColor: 'white',
     justifyContent: 'center',
-    overflow: 'auto',
   },
 };
 
@@ -75,11 +74,14 @@ const ContentSection = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  height: 100%;
   width: 100%;
 `;
 
 const TabSection = styled.div`
   width: 100%;
+  padding-bottom: 5vh; // 밑에 부분 잘리지 않도록 추가
+  overflow-y: auto;
 `;
 
 const TitleSection = styled.div`
@@ -117,6 +119,7 @@ const ApplySection = styled.div`
   bottom: 0;
   position: fixed;
   gap: 10px;
+  background-color: ${({ theme }) => theme.colors.white};
 `;
 
 const ResetButton = styled.div`

@@ -56,6 +56,7 @@ export default ModalTabs;
 
 const TabContainer = styled.div`
   position: sticky;
+  height: 100%;
   top: 0;
   display: flex;
   flex-direction: column;

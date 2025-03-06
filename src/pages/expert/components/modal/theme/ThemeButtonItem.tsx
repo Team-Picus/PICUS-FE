@@ -3,10 +3,11 @@ import React from 'react';
 
 interface ThemeButtonItemProps {
   text: string;
+  onClick: () => void;
 }
 
-const ThemeButtonItem: React.FC<ThemeButtonItemProps> = ({ text }) => {
-  return <Container>{text}</Container>;
+const ThemeButtonItem: React.FC<ThemeButtonItemProps> = ({ text, onClick }) => {
+  return <Container onClick={onClick}>{text}</Container>;
 };
 
 export default ThemeButtonItem;
