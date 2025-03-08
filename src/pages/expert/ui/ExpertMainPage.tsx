@@ -21,4 +21,5 @@ const Container = styled.div`
   width: 100%;
   height: 100vh;
   overflow: auto;
+  padding-top: 7.5vh;
 `;

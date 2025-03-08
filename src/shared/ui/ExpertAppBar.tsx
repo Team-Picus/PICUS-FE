@@ -36,17 +36,20 @@ const ExpertAppBar = ({ rightHeaderAction }: AppBarProps) => {
 
 export default ExpertAppBar;
 
-const Wrapper = styled.header`
+const Wrapper = styled.div`
   display: flex;
   justify-content: space-between;
-  position: relative;
-  width: 100vw;
+  position: fixed;
+  background-color: white;
+  z-index: 10;
+  top: 0;
+  width: 100%;
   max-width: 440px;
   min-height: 7.5vh;
   align-items: center;
   padding: 0 20px;
-  border-bottom: 1px solid #ddd;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid ${({ theme }) => theme.colors.gray1};
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0);
 
   img {
     flex-shrink: 0;

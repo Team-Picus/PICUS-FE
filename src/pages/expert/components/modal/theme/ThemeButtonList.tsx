@@ -2,9 +2,14 @@ import styled from 'styled-components';
 import ThemeButtonItem from '@expert/components/modal/theme/ThemeButtonItem.tsx';
 import IconDot from '@icon/icon-dot-gray.svg';
 import IconWarning from '@icon/icon-warning.svg';
-import { useState } from 'react';
+import React, { useState } from 'react';
 
-const ThemeButtonList = () => {
+interface ThemeButtonListProps {
+  title: string;
+  items: string[];
+}
+
+const ThemeButtonList: React.FC<ThemeButtonListProps> = ({ title, items }) => {
   const [isClicked, setIsClicked] = useState(false);
 
   const handleButtonClick = () => {
@@ -15,21 +20,16 @@ const ThemeButtonList = () => {
     <Container>
       <Title>
         <img src={IconDot} alt={'dot'}></img>
-        컨셉
+        {title}
       </Title>
       <Description>
         <img src={IconWarning} alt={'warning'}></img>
         중복 선택 가능
       </Description>
       <ListSection>
-        <ThemeButtonItem text="가족" onClick={handleButtonClick} />
-        <ThemeButtonItem text="가족" onClick={handleButtonClick} />
-        <ThemeButtonItem text="가족" onClick={handleButtonClick} />
-        <ThemeButtonItem text="가족" onClick={handleButtonClick} />
-        <ThemeButtonItem text="가족" onClick={handleButtonClick} />
-        <ThemeButtonItem text="가족" onClick={handleButtonClick} />
-        <ThemeButtonItem text="가족" onClick={handleButtonClick} />
-        <ThemeButtonItem text="가족" onClick={handleButtonClick} />
+        {items?.map((item, index) => (
+          <ThemeButtonItem key={index} text={item} onClick={handleButtonClick} />
+        ))}
       </ListSection>
     </Container>
   );
