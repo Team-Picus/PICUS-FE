@@ -1,13 +1,14 @@
 import styled from 'styled-components';
 import React from 'react';
+import { useFilterStore } from '@expert/features/store/useFilterStore.ts';
 
 interface ThemeButtonItemProps {
   text: string;
-  onClick: () => void;
 }
 
-const ThemeButtonItem: React.FC<ThemeButtonItemProps> = ({ text, onClick }) => {
-  return <Container onClick={onClick}>{text}</Container>;
+const ThemeButtonItem: React.FC<ThemeButtonItemProps> = ({ text }) => {
+  const { addTheme } = useFilterStore();
+  return <Container onClick={() => addTheme(text)}>{text}</Container>;
 };
 
 export default ThemeButtonItem;

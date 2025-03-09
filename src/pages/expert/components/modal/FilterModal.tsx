@@ -4,6 +4,8 @@ import styled from 'styled-components';
 import IconClose from '@icon/icon-close.svg';
 import ModalTabs from '@expert/components/modal/ModalTabs.tsx';
 import IconRefresh from '@icon/icon-refresh.svg';
+import IconFilterClose from '@icon/icon-filter-close.svg';
+import { useFilterStore } from '@expert/features/store/useFilterStore.ts';
 
 interface FilterModalProps {
   isVisible: boolean;
@@ -12,6 +14,31 @@ interface FilterModalProps {
 }
 
 const FilterModal: React.FC<FilterModalProps> = ({ isVisible, onClose, activeCategory }) => {
+  const { price, region, themes, removeTheme, resetFilters } = useFilterStore();
+
+  const handleApplyClick = () => {
+    onClose();
+  };
+
+  // 선택된 필터 UI에 보여질 태그 리스트 생성
+  const getFilterTags = () => {
+    const tags: string[] = [];
+
+    if (price) {
+      tags.push(typeof price === 'string' ? price : `₩${price.min} ~ ₩${price.max}`);
+    }
+
+    if (region.city) {
+      tags.push(region.district ? `${region.city} ${region.district}` : region.city);
+    }
+
+    if (region.isOutdoor) {
+      tags.push('외부 촬영');
+    }
+
+    return tags;
+  };
+
   return (
     <ReactModal
       isOpen={isVisible}
@@ -27,15 +54,32 @@ const FilterModal: React.FC<FilterModalProps> = ({ isVisible, onClose, activeCat
             <img src={IconClose} alt="Close" />
           </CloseButton>
         </TitleSection>
+
+        <SelectedFilters>
+          {getFilterTags().map((filter, index) => (
+            <FilterTag key={index}>
+              {filter}
+              <img src={IconFilterClose} alt="Remove" onClick={() => resetFilters()} />
+            </FilterTag>
+          ))}
+          {themes.map((theme, index) => (
+            <FilterTag key={index}>
+              {theme}
+              <img src={IconFilterClose} alt="Remove" onClick={() => removeTheme(theme)} />
+            </FilterTag>
+          ))}
+        </SelectedFilters>
+
         <TabSection>
           <ModalTabs activeCategory={activeCategory} />
         </TabSection>
+
         <ApplySection>
-          <ResetButton>
-            <img src={IconRefresh} alt={IconRefresh}></img>
+          <ResetButton onClick={resetFilters}>
+            <img src={IconRefresh} alt="Reset" />
             초기화
           </ResetButton>
-          <ApplyButton>적용하기</ApplyButton>
+          <ApplyButton onClick={handleApplyClick}>적용하기</ApplyButton>
         </ApplySection>
       </ContentSection>
     </ReactModal>
@@ -80,7 +124,7 @@ const ContentSection = styled.div`
 
 const TabSection = styled.div`
   width: 100%;
-  padding-bottom: 5vh; // 밑에 부분 잘리지 않도록 추가
+  padding-bottom: 5vh;
   overflow-y: auto;
 `;
 
@@ -135,10 +179,6 @@ const ResetButton = styled.div`
   width: 20%;
   border-radius: 4px;
   cursor: pointer;
-
-  &:hover {
-    background-color: #e9eaff;
-  }
 `;
 
 const ApplyButton = styled.div`
@@ -152,8 +192,26 @@ const ApplyButton = styled.div`
   width: 80%;
   border-radius: 4px;
   cursor: pointer;
+`;
 
-  &:hover {
-    background-color: #3a5bda;
+const SelectedFilters = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 10px 0;
+`;
+
+const FilterTag = styled.div`
+  display: flex;
+  padding: 6px 10px;
+  border-radius: 16px;
+  background: ${({ theme }) => theme.colors.background2};
+  color: ${({ theme }) => theme.colors.gray8};
+  font: ${({ theme }) => theme.fonts.body_14px_medium};
+  cursor: pointer;
+  gap: 5px;
+
+  img {
+    cursor: pointer;
   }
 `;

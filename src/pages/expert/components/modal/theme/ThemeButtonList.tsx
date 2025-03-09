@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import ThemeButtonItem from '@expert/components/modal/theme/ThemeButtonItem.tsx';
 import IconDot from '@icon/icon-dot-gray.svg';
 import IconWarning from '@icon/icon-warning.svg';
-import React, { useState } from 'react';
+import React from 'react';
 
 interface ThemeButtonListProps {
   title: string;
@@ -10,12 +10,6 @@ interface ThemeButtonListProps {
 }
 
 const ThemeButtonList: React.FC<ThemeButtonListProps> = ({ title, items }) => {
-  const [isClicked, setIsClicked] = useState(false);
-
-  const handleButtonClick = () => {
-    setIsClicked(!isClicked);
-  };
-
   return (
     <Container>
       <Title>
@@ -27,9 +21,7 @@ const ThemeButtonList: React.FC<ThemeButtonListProps> = ({ title, items }) => {
         중복 선택 가능
       </Description>
       <ListSection>
-        {items?.map((item, index) => (
-          <ThemeButtonItem key={index} text={item} onClick={handleButtonClick} />
-        ))}
+        {items?.map((item, index) => <ThemeButtonItem key={index} text={item} />)}
       </ListSection>
     </Container>
   );

@@ -1,9 +1,11 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { PriceRadioButton } from '@expert/components/modal/price/PriceRadioButton.tsx';
 import { PriceInputField } from '@expert/components/modal/price/PriceInputField.tsx';
+import { useFilterStore } from '@expert/features/store/useFilterStore.ts';
 
 const PriceBox = () => {
+  const { setPrice } = useFilterStore();
   const [customPrice, setCustomPrice] = useState({
     min: '',
     max: '',
@@ -13,6 +15,21 @@ const PriceBox = () => {
   const minInputRef = useRef<HTMLInputElement>(null);
   const maxInputRef = useRef<HTMLInputElement>(null);
 
+  // 라디오 버튼 클릭 시 가격 필터 적용
+  const handleRadioChange = (label: string) => {
+    setIsDirect(false); // 직접 입력 해제
+    setPrice(label === '전체' ? null : label);
+  };
+
+  // 직접 입력 버튼 클릭 시 포커스 & 상태 변경
+  const handleDirectPriceClick = () => {
+    setIsDirect(true);
+    if (minInputRef.current) {
+      minInputRef.current.focus();
+    }
+  };
+
+  // 직접 입력 필드 변경 시 상태 업데이트
   const handlePriceChange = (e: React.ChangeEvent<HTMLInputElement>, type: 'min' | 'max') => {
     const value = e.target.value;
     if (/^\d*$/.test(value)) {
@@ -23,26 +40,52 @@ const PriceBox = () => {
     }
   };
 
-  const handleDirectPriceClick = () => {
-    setIsDirect(true);
-    if (minInputRef.current) {
-      minInputRef.current.focus(); // 직접 입력이 선택되면 min input에 포커스
+  // 입력한 최소 & 최대값이 모두 있을 때 `setPrice` 적용
+  useEffect(() => {
+    if (customPrice.min && customPrice.max) {
+      setPrice({ min: Number(customPrice.min), max: Number(customPrice.max) });
     }
-  };
-
-  const handleRadioChange = () => {
-    setIsDirect(false);
-  };
+  }, [customPrice, setPrice]);
 
   return (
     <Container>
       <RadioSection>
-        <PriceRadioButton id="all" label="전체" onChange={handleRadioChange} />
-        <PriceRadioButton id="5to10" label="5만원 ~ 10만원" onChange={handleRadioChange} />
-        <PriceRadioButton id="10to15" label="10만원 ~ 15만원" onChange={handleRadioChange} />
-        <PriceRadioButton id="15to20" label="15만원 ~ 20만원" onChange={handleRadioChange} />
-        <PriceRadioButton id="20to25" label="20만원 ~ 25만원" onChange={handleRadioChange} />
-        <PriceRadioButton id="25to30" label="25만원 ~ 30만원" onChange={handleRadioChange} />
+        <PriceRadioButton id="all" label="전체" onChange={() => handleRadioChange('전체')} />
+        <PriceRadioButton
+          id="under5"
+          label="5만원 이하"
+          onChange={() => handleRadioChange('5만원 이하')}
+        />
+        <PriceRadioButton
+          id="5to10"
+          label="5만원 ~ 10만원"
+          onChange={() => handleRadioChange('5만원 ~ 10만원')}
+        />
+        <PriceRadioButton
+          id="10to15"
+          label="10만원 ~ 15만원"
+          onChange={() => handleRadioChange('10만원 ~ 15만원')}
+        />
+        <PriceRadioButton
+          id="15to20"
+          label="15만원 ~ 20만원"
+          onChange={() => handleRadioChange('15만원 ~ 20만원')}
+        />
+        <PriceRadioButton
+          id="20to30"
+          label="20만원 ~ 30만원"
+          onChange={() => handleRadioChange('20만원 ~ 30만원')}
+        />
+        <PriceRadioButton
+          id="30to50"
+          label="30만원 ~ 50만원"
+          onChange={() => handleRadioChange('30만원 ~ 50만원')}
+        />
+        <PriceRadioButton
+          id="up50"
+          label="50만원 이상"
+          onChange={() => handleRadioChange('50만원 이상')}
+        />
       </RadioSection>
 
       <DirectSection>
@@ -57,7 +100,7 @@ const PriceBox = () => {
             ref={minInputRef}
             type="min"
             value={customPrice.min}
-            onChange={handlePriceChange}
+            onChange={(e) => handlePriceChange(e, 'min')}
             isFocused={isDirect}
           />
           <span>~</span>
@@ -65,7 +108,7 @@ const PriceBox = () => {
             ref={maxInputRef}
             type="max"
             value={customPrice.max}
-            onChange={handlePriceChange}
+            onChange={(e) => handlePriceChange(e, 'max')}
             isFocused={isDirect}
           />
         </FormSection>
