@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import IconDropdown from '@icon/icon-dropdown.svg';
+import ExpertPostFilter from '@expert/components/ExpertPostFilter.tsx';
 
 interface PostHeaderProps {
   totalPosts: number;
@@ -13,10 +13,7 @@ const PostHeader: React.FC<PostHeaderProps> = ({ totalPosts }) => {
         <Title>게시물</Title>
         <TotalNumber>{totalPosts.toLocaleString()}</TotalNumber>
       </TitleSection>
-      <FilterMenu>
-        <p>최근 활동 순 </p>
-        <img src={IconDropdown} alt={IconDropdown}></img>
-      </FilterMenu>
+      <ExpertPostFilter />
     </Container>
   );
 };
@@ -46,16 +43,4 @@ const Title = styled.p`
 const TotalNumber = styled.p`
   font: ${({ theme }) => theme.fonts.subtitle_14px_semibold};
   color: #8a8a8a;
-`;
-
-const FilterMenu = styled.div`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 5px;
-  cursor: pointer;
-  p {
-    font: ${({ theme }) => theme.fonts.body_14px_medium};
-    color: #6d6d6d;
-  }
 `;

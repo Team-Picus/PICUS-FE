@@ -41,7 +41,6 @@ const Wrapper = styled.div`
   justify-content: space-between;
   position: fixed;
   background-color: white;
-  z-index: 10;
   top: 0;
   width: 100%;
   max-width: 440px;
@@ -50,7 +49,7 @@ const Wrapper = styled.div`
   padding: 0 20px;
   border-bottom: 1px solid ${({ theme }) => theme.colors.gray1};
   box-shadow: 0 2px 2px rgba(0, 0, 0, 0);
-
+  z-index: 100;
   img {
     flex-shrink: 0;
   }

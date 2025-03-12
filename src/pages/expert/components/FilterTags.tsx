@@ -5,29 +5,22 @@ import IconTodayClick from '@icon/icon-today-click.svg';
 import IconSlash from '@icon/icon-expert-slash.svg';
 import IconFilter from '@icon/icon-filter.svg';
 import IconDown from '@icon/icon-down.svg';
-import { Post } from '@shared/types';
 import FilterModal from '@expert/components/modal/FilterModal.tsx';
 import { useControlModal } from '@expert/features/hooks/useControlModals.ts';
+import { useGetFilterTags } from '@expert/features/hooks/useGetFilterTags.ts';
 
-interface FilterTagsProps {
-  onChange: (filters: { category: string[] }) => void;
-  categories: string[];
-  posts: Post[];
-}
-
-const FilterTags: React.FC<FilterTagsProps> = ({ onChange, categories, posts }) => {
+const FilterTags: React.FC = () => {
   const [activeTag, setActiveTag] = useState<string | null>(null);
   const { modalState, openModal, closeModal } = useControlModal();
+  const filterTags = useGetFilterTags();
+
+  const handleIsTodayAvailable = () => {
+    setActiveTag('당일가능');
+  };
 
   const handleTagClick = (category: string) => {
     setActiveTag(category);
-
-    if (category === '당일가능') {
-      const filteredPosts = posts.filter((post) => post.isTodayAvailable);
-      onChange({ category: filteredPosts.map((post) => post.title) });
-    } else {
-      openModal();
-    }
+    openModal();
   };
 
   const handleModalClose = () => {
@@ -35,25 +28,23 @@ const FilterTags: React.FC<FilterTagsProps> = ({ onChange, categories, posts }) 
     closeModal();
   };
 
-  const filteredCategories = categories.filter((category) => category !== '당일가능');
-
   return (
     <Container>
       <ScrollableTags>
-        <Tag $active={activeTag === '당일가능'} onClick={() => handleTagClick('당일가능')}>
+        <Tag $active={activeTag === '당일가능'} onClick={handleIsTodayAvailable}>
           <img src={activeTag === '당일가능' ? IconTodayClick : IconToday} alt="Today" />
           {'당일가능'}
         </Tag>
         <Slash>
           <img src={IconSlash} alt="Slash" />
         </Slash>
-        {filteredCategories.map((category, index) => (
+        {filterTags.map((filter, index) => (
           <Tag
             key={index}
-            $active={activeTag === category}
-            onClick={() => handleTagClick(category)}
+            $active={filter.isApplied}
+            onClick={() => handleTagClick(filter.category)}
           >
-            {category}
+            {filter.value}
             <img src={IconDown} alt="Down" />
           </Tag>
         ))}
@@ -96,6 +87,7 @@ const Tag = styled.div<{ $active: boolean }>`
   border-radius: 16px;
   font: ${({ theme }) => theme.fonts.body_14px_medium};
   transition: background-color 0.3s;
+
   background-color: ${({ $active, theme }) => ($active ? theme.colors.main1 : theme.colors.gray1)};
   color: ${({ $active, theme }) => ($active ? theme.colors.white : theme.colors.gray7)};
   border: solid 1px ${({ $active, theme }) => ($active ? theme.colors.main1 : '#e0e0e0')};
