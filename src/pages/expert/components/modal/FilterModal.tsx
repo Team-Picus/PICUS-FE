@@ -20,23 +20,12 @@ const FilterModal: React.FC<FilterModalProps> = ({ isVisible, onClose, activeCat
     onClose();
   };
 
-  // 선택된 필터 UI에 보여질 태그 리스트 생성
   const getFilterTags = () => {
-    const tags: string[] = [];
-
-    if (price) {
-      tags.push(typeof price === 'string' ? price : `₩${price.min} ~ ₩${price.max}`);
-    }
-
-    if (region.city) {
-      tags.push(region.district ? `${region.city} ${region.district}` : region.city);
-    }
-
-    if (region.isOutdoor) {
-      tags.push('외부 촬영');
-    }
-
-    return tags;
+    return [
+      price ? (typeof price === 'string' ? price : `₩${price.min} ~ ₩${price.max}`) : null,
+      region.city ? (region.district ? `${region.city} ${region.district}` : region.city) : null,
+      region.isOutdoor ? '외부 촬영' : '개인 스튜디오',
+    ].filter(Boolean);
   };
 
   return (
@@ -59,7 +48,7 @@ const FilterModal: React.FC<FilterModalProps> = ({ isVisible, onClose, activeCat
           {getFilterTags().map((filter, index) => (
             <FilterTag key={index}>
               {filter}
-              <img src={IconFilterClose} alt="Remove" onClick={() => resetFilters()} />
+              <img src={IconFilterClose} alt="Remove" onClick={() => resetFilters} />
             </FilterTag>
           ))}
           {themes.map((theme, index) => (

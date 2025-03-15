@@ -1,15 +1,29 @@
 import React from 'react';
 import styled from 'styled-components';
+import { useFilterStore } from '@expert/features/store/useFilterStore.ts';
 
 interface RegionCheckBoxProps {
   id: string;
   label: string;
+  isOutdoor: boolean;
 }
 
-export const RegionCheckBox: React.FC<RegionCheckBoxProps> = ({ id, label }) => {
+export const RegionCheckBox: React.FC<RegionCheckBoxProps> = ({ id, label, isOutdoor }) => {
+  const { region, setRegion } = useFilterStore();
+
+  const handleButtonChange = () => {
+    setRegion({ ...region, isOutdoor });
+  };
+
   return (
     <Wrapper>
-      <CheckBoxInput id={id} name="region" type="checkbox" />
+      <CheckBoxInput
+        id={id}
+        name="region"
+        type="checkbox"
+        checked={region.isOutdoor === isOutdoor}
+        onChange={handleButtonChange}
+      />
       <Label htmlFor={id}>{label}</Label>
     </Wrapper>
   );
