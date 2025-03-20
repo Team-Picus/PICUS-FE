@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import ExpertPostsList from './ExpertPostsList';
 import FilterTags from './FilterTags';
 import { Post } from '@shared/types';
@@ -7,26 +7,13 @@ import PostHeader from '@expert/components/PostHeader.tsx';
 import styled from 'styled-components';
 
 const ExpertPosts: React.FC = () => {
-  const [posts, setPosts] = useState<Post[]>(expertPosts);
-  const [filters, setFilters] = useState<{ category: string[] }>({ category: [] });
-
-  useEffect(() => {
-    const filteredPosts = expertPosts.filter(
-      (post) =>
-        filters.category.length === 0 || post.tags.some((tag) => filters.category.includes(tag)),
-    );
-    setPosts(filteredPosts);
-  }, [filters]);
+  const [posts] = useState<Post[]>(expertPosts);
 
   return (
     <Container>
       <PostHeader totalPosts={3451} />
       <StickyWrapper>
-        <FilterTags
-          categories={['당일가능', '가격', '지역', '테마']}
-          onChange={setFilters}
-          posts={posts}
-        />
+        <FilterTags />
       </StickyWrapper>
       <ScrollWrapper>
         <ExpertPostsList posts={posts} />

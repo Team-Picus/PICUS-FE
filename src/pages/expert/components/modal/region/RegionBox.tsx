@@ -6,10 +6,10 @@ const RegionBox = () => {
   return (
     <Container>
       <CheckSection>
-        <RegionCheckBox id="studio" label="개인 스튜디오" isOutdoor={false} />
+        <RegionCheckBox label="개인 스튜디오" isOutdoorValue={false} />
       </CheckSection>
       <DropdownSection>
-        <RegionCheckBox id="outdoor" label="외부 촬영" isOutdoor={true}></RegionCheckBox>
+        <RegionCheckBox label="외부 촬영" isOutdoorValue={true}></RegionCheckBox>
         <RegionDropdown />
       </DropdownSection>
     </Container>

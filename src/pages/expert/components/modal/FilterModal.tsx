@@ -14,18 +14,61 @@ interface FilterModalProps {
 }
 
 const FilterModal: React.FC<FilterModalProps> = ({ isVisible, onClose, activeCategory }) => {
-  const { price, region, themes, removeTheme, resetFilters } = useFilterStore();
+  const {
+    price,
+    region,
+    isOutdoor,
+    themes,
+    removeTheme,
+    resetFilters,
+    setPrice,
+    setRegion,
+    setIsOutdoor,
+  } = useFilterStore();
 
   const handleApplyClick = () => {
     onClose();
   };
 
+  // 각 필터를 객체 형태로 반환하여 어떤 타입의 필터인지 식별할 수 있게 함
   const getFilterTags = () => {
-    return [
-      price ? (typeof price === 'string' ? price : `₩${price.min} ~ ₩${price.max}`) : null,
-      region.city ? (region.district ? `${region.city} ${region.district}` : region.city) : null,
-      region.isOutdoor ? '외부 촬영' : '개인 스튜디오',
-    ].filter(Boolean);
+    const tags: { type: string; label: string }[] = [];
+    if (price) {
+      tags.push({
+        type: 'price',
+        label: typeof price === 'string' ? price : `₩${price.min} ~ ₩${price.max}`,
+      });
+    }
+    if (region.city) {
+      tags.push({
+        type: 'region',
+        label: region.district ? `${region.city} ${region.district}` : region.city,
+      });
+    }
+    if (isOutdoor !== null) {
+      tags.push({
+        type: 'isOutdoor',
+        label: isOutdoor === true ? '외부 촬영' : '개인 스튜디오',
+      });
+    }
+    return tags;
+  };
+
+  // 각 필터 타입에 맞게 제거하는 함수
+  const handleRemoveFilter = (type: string) => {
+    switch (type) {
+      case 'price':
+        setPrice(null);
+        break;
+      case 'region':
+        setRegion({ city: '', district: '' });
+        break;
+      case 'isOutdoor':
+        setIsOutdoor(null);
+        break;
+      default:
+        break;
+    }
   };
 
   return (
@@ -45,10 +88,14 @@ const FilterModal: React.FC<FilterModalProps> = ({ isVisible, onClose, activeCat
         </TitleSection>
 
         <SelectedFilters>
-          {getFilterTags().map((filter, index) => (
+          {getFilterTags().map((filterObj, index) => (
             <FilterTag key={index}>
-              {filter}
-              <img src={IconFilterClose} alt="Remove" onClick={() => resetFilters} />
+              {filterObj.label}
+              <img
+                src={IconFilterClose}
+                alt="Remove"
+                onClick={() => handleRemoveFilter(filterObj.type)}
+              />
             </FilterTag>
           ))}
           {themes.map((theme, index) => (
@@ -192,6 +239,7 @@ const SelectedFilters = styled.div`
 
 const FilterTag = styled.div`
   display: flex;
+  align-items: center;
   padding: 6px 10px;
   border-radius: 16px;
   background: ${({ theme }) => theme.colors.background2};

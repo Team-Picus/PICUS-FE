@@ -3,28 +3,22 @@ import styled from 'styled-components';
 import { useFilterStore } from '@expert/features/store/useFilterStore.ts';
 
 interface RegionCheckBoxProps {
-  id: string;
   label: string;
-  isOutdoor: boolean;
+  isOutdoorValue: boolean;
 }
 
-export const RegionCheckBox: React.FC<RegionCheckBoxProps> = ({ id, label, isOutdoor }) => {
-  const { region, setRegion } = useFilterStore();
+export const RegionCheckBox: React.FC<RegionCheckBoxProps> = ({ label, isOutdoorValue }) => {
+  const { isOutdoor, setIsOutdoor } = useFilterStore();
+  const isChecked = isOutdoor === isOutdoorValue;
 
-  const handleButtonChange = () => {
-    setRegion({ ...region, isOutdoor });
+  const handleCheckBoxClick = () => {
+    setIsOutdoor(isChecked ? null : isOutdoorValue);
   };
 
   return (
-    <Wrapper>
-      <CheckBoxInput
-        id={id}
-        name="region"
-        type="checkbox"
-        checked={region.isOutdoor === isOutdoor}
-        onChange={handleButtonChange}
-      />
-      <Label htmlFor={id}>{label}</Label>
+    <Wrapper onClick={handleCheckBoxClick}>
+      <CheckBoxInput type="checkbox" checked={isChecked} readOnly />
+      <Label $isChecked={isChecked}>{label}</Label>
     </Wrapper>
   );
 };
@@ -32,26 +26,31 @@ export const RegionCheckBox: React.FC<RegionCheckBoxProps> = ({ id, label, isOut
 const Wrapper = styled.div`
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 5px;
+  cursor: pointer;
 `;
 
-const CheckBoxInput = styled.input`
-  vertical-align: middle;
-  appearance: none;
-  background: ${({ theme }) => theme.colors.white};
-  border: max(1px, 0.1em) solid ${({ theme }) => theme.colors.gray5};
-  width: 1em;
-  height: 1em;
-  border-radius: 2px;
+const CheckBoxInput = styled.input.attrs({ type: 'checkbox' })`
+  appearance: auto; /* 기본 체크 표시 유지 */
+  accent-color: ${({ theme }) => theme.colors.main1};
+  padding: 15px 15px;
   cursor: pointer;
+
+  /* 체크 안 된 상태 */
+  background-color: ${({ theme }) => theme.colors.white};
+  border-radius: 2px;
 
   &:checked {
     background-color: ${({ theme }) => theme.colors.main1};
-    content: '✔';
+    border-radius: 2px;
   }
 `;
 
-const Label = styled.label`
+interface LabelProps {
+  $isChecked: boolean;
+}
+
+const Label = styled.label<LabelProps>`
   font: ${({ theme }) => theme.fonts.body_14px_medium};
-  color: ${({ theme }) => theme.colors.gray5};
+  color: ${({ theme, $isChecked }) => ($isChecked ? theme.colors.main1 : theme.colors.gray7)};
 `;
