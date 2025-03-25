@@ -2,7 +2,7 @@ import { createBrowserRouter } from 'react-router';
 import { RootLayout } from '@app/layout';
 import { HomePage } from '@pages/home';
 import { ExpertMainPage } from '@pages/expert/ui/ExpertMainPage.tsx';
-import { ExpertDetailPage } from 'pages/profile';
+import { ExpertDetailPage } from '@pages/profile';
 import { MyPage } from '@pages/my';
 
 export const router = createBrowserRouter([
