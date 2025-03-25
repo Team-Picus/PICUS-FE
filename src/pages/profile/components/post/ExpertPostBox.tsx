@@ -1,11 +1,11 @@
 import styled from 'styled-components';
 import { categories, postList } from '@shared/apis/mock/my.ts';
-import TodayAvailable from '@my/components/post/list/TodayAvailable.tsx';
-import ExpertPostBanner from '@my/components/post/banner/ExpertPostBanner.tsx';
-import Category from '@my/components/post/list/Category.tsx';
-import ExpertPost from '@my/components/post/list/ExpertPost.tsx';
-import { MemberRole, useMemberRoleStore } from "@shared/store/useMemberRoleStore.ts";
-import PostFilter from "@my/components/post/PostFilter.tsx";
+import TodayAvailable from '@pages/profile/components/post/list/TodayAvailable.tsx';
+import ExpertPostBanner from '@pages/profile/components/post/banner/ExpertPostBanner.tsx';
+import Category from '@pages/profile/components/post/list/Category.tsx';
+import ExpertPost from '@pages/profile/components/post/list/ExpertPost.tsx';
+import { MemberRole, useMemberRoleStore } from '@shared/store/useMemberRoleStore.ts';
+import PostFilter from '@pages/profile/components/post/list/PostFilter.tsx';
 
 const ExpertPostBox = () => {
   const { memberRole } = useMemberRoleStore();

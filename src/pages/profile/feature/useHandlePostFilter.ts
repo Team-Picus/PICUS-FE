@@ -1,4 +1,4 @@
-import { useHandleToggle } from '@my/feature/useHandleToggle.ts';
+import { useHandleToggle } from '@pages/profile/feature/useHandleToggle.ts';
 import { useState } from 'react';
 
 export const useHandlePostFilter = () => {

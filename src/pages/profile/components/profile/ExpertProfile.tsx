@@ -2,7 +2,7 @@ import ImgMyProfile from '@img/img-my-profile.png';
 import ImgMyExample from '@img/img-my-example.png';
 import styled from 'styled-components';
 import { MemberRole, useMemberRoleStore } from '@shared/store/useMemberRoleStore.ts';
-import Like from '@my/components/profile/Like.tsx';
+import Like from '@pages/profile/components/profile/Like.tsx';
 
 const ExpertProfile = () => {
   const { memberRole } = useMemberRoleStore();
@@ -44,7 +44,7 @@ const ExpertProfile = () => {
       </IntroSection>
       {/*버튼*/}
       <Button onClick={() => (MemberRole.EXPERT ? editProfile() : chat())}>
-        {memberRole === MemberRole.EXPERT ? '프로필 편집' : '1: 채팅'}
+        {memberRole === MemberRole.EXPERT ? '프로필 편집' : '1:1 채팅'}
       </Button>
     </ProfileInner>
   );

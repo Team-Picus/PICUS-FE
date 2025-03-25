@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import IconFolderCheck from '@icon/icon-folder-check.svg';
 import IconFolderCheckFill from '@icon/icon-folder-check-fill.svg';
-import Review from '@my/components/review/Review.tsx';
+import Review from '@pages/profile/components/review/Review.tsx';
 import { reviews } from '@shared/apis/mock/my.ts';
 import { useState } from 'react';
 

@@ -1,7 +1,7 @@
 import IconArrowBottom from '@icon/icon-arrow-bottom.svg';
 import IconArrowTop from '@icon/icon-arrow-top.svg';
 import styled from 'styled-components';
-import { useHandlePostFilter } from '@my/feature/useHandlePostFilter.ts';
+import { useHandlePostFilter } from '@pages/profile/feature/useHandlePostFilter.ts';
 
 const PostFilter = () => {
   const { isOn, filter, filterItems, changeFilter, handleToggle } = useHandlePostFilter();

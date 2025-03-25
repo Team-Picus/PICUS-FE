@@ -1,6 +1,6 @@
 import IconQuestion from '@icon/icon-question.svg';
 import styled, { css } from 'styled-components';
-import { useHandleGuide } from '@my/feature/useHandleGuide.ts';
+import { useHandleGuide } from '@pages/profile/feature/useHandleGuide.ts';
 
 const BannerLabel = () => {
   const { showGuide, isVisible, handleGuide } = useHandleGuide();

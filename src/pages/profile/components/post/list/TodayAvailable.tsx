@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import styled from 'styled-components';
-import ToggleButton from '@my/components/post/list/ToggleButton.tsx';
+import ToggleButton from '@pages/profile/components/post/list/ToggleButton.tsx';
 
 const TodayAvailable = () => {
   const [todayAvailable, setTodayAvailable] = useState(false);
