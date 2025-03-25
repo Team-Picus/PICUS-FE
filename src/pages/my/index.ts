@@ -1,1 +1,1 @@
-export { ExpertDetailPage } from '@my/ui/ExpertDetailPage';
+export { MyPage } from '@my/ui/MyPage.tsx';
