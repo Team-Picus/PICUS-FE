@@ -1,8 +1,8 @@
 import styled from 'styled-components';
-import { useHandleTab } from '@my/feature/useHandleTab.ts';
-import ExpertPostBox from '@my/components/post/ExpertPostBox.tsx';
-import ExpertReviewBox from '@my/components/review/ExpertReviewBox.tsx';
-import ExpertInfo from '@my/components/info/ExpertInfo.tsx';
+import { useHandleTab } from '@pages/profile/feature/useHandleTab.ts';
+import ExpertPostBox from '@pages/profile/components/post/ExpertPostBox.tsx';
+import ExpertReviewBox from '@pages/profile/components/review/ExpertReviewBox.tsx';
+import ExpertInfo from '@pages/profile/components/info/ExpertInfo.tsx';
 
 const ExpertTabs = () => {
   const { activeTab, handleTab, tabRefs, indicatorStyle } = useHandleTab();

@@ -1,7 +1,7 @@
 import IconStarYellow from '@icon/icon-star-yellow.svg';
 import IconStarGray from '@icon/icon-star-gray.svg';
 import styled from 'styled-components';
-import { useHandleToggle } from '@my/feature/useHandleToggle.ts';
+import { useHandleToggle } from '@pages/profile/feature/useHandleToggle.ts';
 
 interface ReviewProps {
   nickname: string;

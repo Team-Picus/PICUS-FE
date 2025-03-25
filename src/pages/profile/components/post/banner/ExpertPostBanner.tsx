@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import BannerInfo from '@my/components/post/banner/BannerInfo.tsx';
-import BannerLabel from '@my/components/post/banner/BannerLabel.tsx';
+import BannerInfo from '@pages/profile/components/post/banner/BannerInfo.tsx';
+import BannerLabel from '@pages/profile/components/post/banner/BannerLabel.tsx';
 
 const ExpertPostBanner = () => {
   return (

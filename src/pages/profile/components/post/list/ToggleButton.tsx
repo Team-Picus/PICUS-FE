@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { useHandleToggle } from '@my/feature/useHandleToggle.ts';
+import { useHandleToggle } from '@pages/profile/feature/useHandleToggle.ts';
 
 function ToggleButton() {
   const { isOn, handleToggle } = useHandleToggle();
