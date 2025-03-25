@@ -27,6 +27,7 @@
       "@pages/*": ["pages/*"],
       "@shared/*": ["shared/*"],
       "@home/*": ["pages/home/*"],
+      "@profile/*": ["pages/profile/*"],
       "@my/*": ["pages/my/*"],
       "@onboarding/*": ["pages/onboarding/*"],
       "@expert/*": ["pages/expert/*"],

@@ -39,6 +39,10 @@ export default defineConfig({
         replacement: path.resolve(__dirname, 'src/pages/expert'),
       },
       {
+        find: '@profile',
+        replacement: path.resolve(__dirname, 'src/pages/profile'),
+      },
+      {
         find: '@my',
         replacement: path.resolve(__dirname, 'src/pages/my'),
       },
